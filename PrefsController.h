@@ -7,7 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UniversalAccessPref.h"
+
 
 @interface PrefsController : NSObject
+
+@property (copy, nonatomic) NSString *prefPanePath;
+@property (strong, nonatomic) NSBundle *prefPaneBundle;
+@property (strong, nonatomic) UniversalAccessPref *prefPaneObject;
+@property (strong, nonatomic) UAPDisplayViewController *displayViewController;
+
+
++ (PrefsController *)defaultController;
+- (id)initWithPath:(NSString *)path;
+
+- (void)invertColor;
+- (void)toggleCursorSize;
 
 @end

@@ -7,16 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "UniversalAccessPref.h"
 
+@class PrefsController;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property (weak, nonatomic) IBOutlet NSButton *testButton;
-@property (strong, nonatomic) UniversalAccessPref *prefPaneObject;
-
-- (IBAction)testAction:(id)sender;
-+ (NSTimeInterval)timestampSinceSystemStartup;
+@property (strong, nonatomic) PrefsController *prefsController;
 
 @end
 

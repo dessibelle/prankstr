@@ -13,7 +13,6 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
-                <outlet property="testButton" destination="FAd-sM-gmC" id="Klr-6e-Ihe"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -667,7 +666,7 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="PrefPaneTEst" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="PrefPaneTest" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="668" height="500"/>
@@ -675,18 +674,6 @@
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="-1" width="668" height="500"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FAd-sM-gmC">
-                        <rect key="frame" x="18" y="464" width="61" height="18"/>
-                        <buttonCell key="cell" type="check" title="Test" bezelStyle="regularSquare" imagePosition="left" allowsMixedState="YES" inset="2" id="FMj-OT-BAn">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="testAction:" target="Voe-Tx-rLC" id="AzJ-71-41K"/>
-                        </connections>
-                    </button>
-                </subviews>
             </view>
             <point key="canvasLocation" x="334" y="437"/>
         </window>
