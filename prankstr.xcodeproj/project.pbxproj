@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0532115FB55387389319B212 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C4BE1C93A457F0EAB7BB002 /* libPods.a */; };
 		6A6E90601B17710100BA025A /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A6E905F1B17710100BA025A /* PreferencePanes.framework */; };
 		6AACA5DB1B1D87950069C3E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AACA5D01B1D87950069C3E0 /* AppDelegate.m */; };
 		6AACA5DC1B1D87950069C3E0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AACA5D21B1D87950069C3E0 /* MainMenu.xib */; };
@@ -34,6 +35,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5C4BE1C93A457F0EAB7BB002 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A6E90551B17694C00BA025A /* prankstr */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = prankstr; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A6E905F1B17710100BA025A /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = System/Library/Frameworks/PreferencePanes.framework; sourceTree = SDKROOT; };
 		6AACA5CA1B1D87490069C3E0 /* UniversalAccessPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniversalAccessPref.h; path = Shared/UniversalAccessPref.h; sourceTree = "<group>"; };
@@ -51,6 +53,8 @@
 		6AACA5E81B1EE2CB0069C3E0 /* PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsController.h; sourceTree = "<group>"; };
 		6AACA5E91B1EE2CB0069C3E0 /* PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefsController.m; sourceTree = "<group>"; };
 		6ABD19021B188C1C008C68D5 /* prankstr GUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "prankstr GUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C90986E119F044E648867C7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		DA293CCA2ACB47D7572BBCC6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A6E90601B17710100BA025A /* PreferencePanes.framework in Frameworks */,
+				0532115FB55387389319B212 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +86,7 @@
 				6AACA5E21B1D879B0069C3E0 /* GUI */,
 				6AACA5C41B1D850A0069C3E0 /* Frameworks */,
 				6A6E90561B17694C00BA025A /* Products */,
+				D077E9BB87C6427BB0ABE2E9 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				6A6E905F1B17710100BA025A /* PreferencePanes.framework */,
+				5C4BE1C93A457F0EAB7BB002 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -154,6 +161,15 @@
 			name = GUI;
 			sourceTree = "<group>";
 		};
+		D077E9BB87C6427BB0ABE2E9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C90986E119F044E648867C7 /* Pods.debug.xcconfig */,
+				DA293CCA2ACB47D7572BBCC6 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -161,9 +177,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A6E905C1B17694C00BA025A /* Build configuration list for PBXNativeTarget "prankstr" */;
 			buildPhases = (
+				2AA35F1F84028667CCCE6D4C /* Check Pods Manifest.lock */,
 				6A6E90511B17694C00BA025A /* Sources */,
 				6A6E90521B17694C00BA025A /* Frameworks */,
 				6A6E90531B17694C00BA025A /* CopyFiles */,
+				22B97266A4B7086CA29A4B20 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -241,6 +259,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		22B97266A4B7086CA29A4B20 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2AA35F1F84028667CCCE6D4C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6A6E90511B17694C00BA025A /* Sources */ = {
@@ -363,6 +414,7 @@
 		};
 		6A6E905D1B17694C00BA025A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C90986E119F044E648867C7 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "";
 				PRODUCT_NAME = prankstr;
@@ -371,6 +423,7 @@
 		};
 		6A6E905E1B17694C00BA025A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA293CCA2ACB47D7572BBCC6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "";
 				PRODUCT_NAME = prankstr;
