@@ -16,6 +16,8 @@
 		6AACA5E01B1D87950069C3E0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6AACA5D91B1D87950069C3E0 /* Info.plist */; };
 		6AACA5E11B1D87950069C3E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AACA5DA1B1D87950069C3E0 /* main.m */; };
 		6AACA5E41B1D88150069C3E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AACA5E31B1D88150069C3E0 /* main.m */; };
+		6AACA5E71B1EE2AE0069C3E0 /* SocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AACA5E61B1EE2AE0069C3E0 /* SocketServer.m */; };
+		6AACA5EA1B1EE2CB0069C3E0 /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AACA5E91B1EE2CB0069C3E0 /* PrefsController.m */; };
 		6ABD19221B18AE70008C68D5 /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A6E905F1B17710100BA025A /* PreferencePanes.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,10 @@
 		6AACA5D91B1D87950069C3E0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = GUI/Info.plist; sourceTree = "<group>"; };
 		6AACA5DA1B1D87950069C3E0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = GUI/main.m; sourceTree = "<group>"; };
 		6AACA5E31B1D88150069C3E0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Listener/main.m; sourceTree = "<group>"; };
+		6AACA5E51B1EE2AE0069C3E0 /* SocketServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketServer.h; sourceTree = "<group>"; };
+		6AACA5E61B1EE2AE0069C3E0 /* SocketServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketServer.m; sourceTree = "<group>"; };
+		6AACA5E81B1EE2CB0069C3E0 /* PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsController.h; sourceTree = "<group>"; };
+		6AACA5E91B1EE2CB0069C3E0 /* PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefsController.m; sourceTree = "<group>"; };
 		6ABD19021B188C1C008C68D5 /* prankstr GUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "prankstr GUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -99,6 +105,10 @@
 			isa = PBXGroup;
 			children = (
 				6AACA5E31B1D88150069C3E0 /* main.m */,
+				6AACA5E51B1EE2AE0069C3E0 /* SocketServer.h */,
+				6AACA5E61B1EE2AE0069C3E0 /* SocketServer.m */,
+				6AACA5E81B1EE2CB0069C3E0 /* PrefsController.h */,
+				6AACA5E91B1EE2CB0069C3E0 /* PrefsController.m */,
 			);
 			name = Listener;
 			sourceTree = "<group>";
@@ -238,6 +248,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AACA5E41B1D88150069C3E0 /* main.m in Sources */,
+				6AACA5E71B1EE2AE0069C3E0 /* SocketServer.m in Sources */,
+				6AACA5EA1B1EE2CB0069C3E0 /* PrefsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
