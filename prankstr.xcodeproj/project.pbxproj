@@ -21,6 +21,10 @@
 		6AACA5E71B1EE2AE0069C3E0 /* SocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AACA5E61B1EE2AE0069C3E0 /* SocketServer.m */; };
 		6AACA5EA1B1EE2CB0069C3E0 /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AACA5E91B1EE2CB0069C3E0 /* PrefsController.m */; };
 		6ABD19221B18AE70008C68D5 /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A6E905F1B17710100BA025A /* PreferencePanes.framework */; };
+		F4DC86561B20244A00CF5F4A /* PrankstrProtocolInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DC86541B2022D900CF5F4A /* PrankstrProtocolInterpreter.m */; };
+		F4DC865A1B21C98000CF5F4A /* PrankstrMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DC86591B21C98000CF5F4A /* PrankstrMessage.m */; };
+		F4DC865D1B21CEBF00CF5F4A /* MessageHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DC865C1B21CEBF00CF5F4A /* MessageHandler.m */; };
+		F4DC86601B21D15000CF5F4A /* Listener.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DC865F1B21D15000CF5F4A /* Listener.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +41,9 @@
 
 /* Begin PBXFileReference section */
 		5C4BE1C93A457F0EAB7BB002 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A062F181B209B7D004AD864 /* ClientController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ClientController.h; path = Client/ClientController.h; sourceTree = "<group>"; };
+		6A062F191B209B7D004AD864 /* ClientController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ClientController.m; path = Client/ClientController.m; sourceTree = "<group>"; };
+		6A062F1A1B209BA3004AD864 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Client/main.m; sourceTree = "<group>"; };
 		6A6E90551B17694C00BA025A /* prankstr */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = prankstr; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A6E905F1B17710100BA025A /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = System/Library/Frameworks/PreferencePanes.framework; sourceTree = SDKROOT; };
 		6AACA5CA1B1D87490069C3E0 /* UniversalAccessPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniversalAccessPref.h; path = Shared/UniversalAccessPref.h; sourceTree = "<group>"; };
@@ -49,13 +56,22 @@
 		6AACA5D91B1D87950069C3E0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = GUI/Info.plist; sourceTree = "<group>"; };
 		6AACA5DA1B1D87950069C3E0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = GUI/main.m; sourceTree = "<group>"; };
 		6AACA5E31B1D88150069C3E0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Listener/main.m; sourceTree = "<group>"; };
-		6AACA5E51B1EE2AE0069C3E0 /* SocketServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketServer.h; sourceTree = "<group>"; };
-		6AACA5E61B1EE2AE0069C3E0 /* SocketServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketServer.m; sourceTree = "<group>"; };
-		6AACA5E81B1EE2CB0069C3E0 /* PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsController.h; sourceTree = "<group>"; };
-		6AACA5E91B1EE2CB0069C3E0 /* PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefsController.m; sourceTree = "<group>"; };
+		6AACA5E51B1EE2AE0069C3E0 /* SocketServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketServer.h; path = Listener/SocketServer.h; sourceTree = "<group>"; };
+		6AACA5E61B1EE2AE0069C3E0 /* SocketServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketServer.m; path = Listener/SocketServer.m; sourceTree = "<group>"; };
+		6AACA5E81B1EE2CB0069C3E0 /* PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefsController.h; path = Shared/PrefsController.h; sourceTree = "<group>"; };
+		6AACA5E91B1EE2CB0069C3E0 /* PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrefsController.m; path = Shared/PrefsController.m; sourceTree = "<group>"; };
 		6ABD19021B188C1C008C68D5 /* prankstr GUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "prankstr GUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C90986E119F044E648867C7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DA293CCA2ACB47D7572BBCC6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F4DC86521B2022BD00CF5F4A /* PrankstrProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrankstrProtocol.h; path = Shared/PrankstrProtocol.h; sourceTree = "<group>"; };
+		F4DC86531B2022D900CF5F4A /* PrankstrProtocolInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrankstrProtocolInterpreter.h; path = Shared/PrankstrProtocolInterpreter.h; sourceTree = "<group>"; };
+		F4DC86541B2022D900CF5F4A /* PrankstrProtocolInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrankstrProtocolInterpreter.m; path = Shared/PrankstrProtocolInterpreter.m; sourceTree = "<group>"; };
+		F4DC86581B21C98000CF5F4A /* PrankstrMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrankstrMessage.h; path = Shared/PrankstrMessage.h; sourceTree = "<group>"; };
+		F4DC86591B21C98000CF5F4A /* PrankstrMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrankstrMessage.m; path = Shared/PrankstrMessage.m; sourceTree = "<group>"; };
+		F4DC865B1B21CEBF00CF5F4A /* MessageHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageHandler.h; path = Listener/MessageHandler.h; sourceTree = "<group>"; };
+		F4DC865C1B21CEBF00CF5F4A /* MessageHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageHandler.m; path = Listener/MessageHandler.m; sourceTree = "<group>"; };
+		F4DC865E1B21D15000CF5F4A /* Listener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Listener.h; path = Listener/Listener.h; sourceTree = "<group>"; };
+		F4DC865F1B21D15000CF5F4A /* Listener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Listener.m; path = Listener/Listener.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,11 +95,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A062F171B209B2C004AD864 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				6A062F1A1B209BA3004AD864 /* main.m */,
+				6A062F181B209B7D004AD864 /* ClientController.h */,
+				6A062F191B209B7D004AD864 /* ClientController.m */,
+			);
+			name = Client;
+			sourceTree = "<group>";
+		};
 		6A6E904C1B17694C00BA025A = {
 			isa = PBXGroup;
 			children = (
 				6AACA5CE1B1D87700069C3E0 /* Shared */,
 				6AACA5CD1B1D875E0069C3E0 /* Listener */,
+				6A062F171B209B2C004AD864 /* Client */,
 				6AACA5E21B1D879B0069C3E0 /* GUI */,
 				6AACA5C41B1D850A0069C3E0 /* Frameworks */,
 				6A6E90561B17694C00BA025A /* Products */,
@@ -113,8 +140,12 @@
 			isa = PBXGroup;
 			children = (
 				6AACA5E31B1D88150069C3E0 /* main.m */,
+				F4DC865E1B21D15000CF5F4A /* Listener.h */,
+				F4DC865F1B21D15000CF5F4A /* Listener.m */,
 				6AACA5E51B1EE2AE0069C3E0 /* SocketServer.h */,
 				6AACA5E61B1EE2AE0069C3E0 /* SocketServer.m */,
+				F4DC865B1B21CEBF00CF5F4A /* MessageHandler.h */,
+				F4DC865C1B21CEBF00CF5F4A /* MessageHandler.m */,
 			);
 			name = Listener;
 			sourceTree = "<group>";
@@ -125,6 +156,11 @@
 				6AACA5CA1B1D87490069C3E0 /* UniversalAccessPref.h */,
 				6AACA5E81B1EE2CB0069C3E0 /* PrefsController.h */,
 				6AACA5E91B1EE2CB0069C3E0 /* PrefsController.m */,
+				F4DC86521B2022BD00CF5F4A /* PrankstrProtocol.h */,
+				F4DC86581B21C98000CF5F4A /* PrankstrMessage.h */,
+				F4DC86591B21C98000CF5F4A /* PrankstrMessage.m */,
+				F4DC86531B2022D900CF5F4A /* PrankstrProtocolInterpreter.h */,
+				F4DC86541B2022D900CF5F4A /* PrankstrProtocolInterpreter.m */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -300,8 +336,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AACA5E41B1D88150069C3E0 /* main.m in Sources */,
+				F4DC865A1B21C98000CF5F4A /* PrankstrMessage.m in Sources */,
 				6AACA5E71B1EE2AE0069C3E0 /* SocketServer.m in Sources */,
 				6AACA5EA1B1EE2CB0069C3E0 /* PrefsController.m in Sources */,
+				F4DC865D1B21CEBF00CF5F4A /* MessageHandler.m in Sources */,
+				F4DC86561B20244A00CF5F4A /* PrankstrProtocolInterpreter.m in Sources */,
+				F4DC86601B21D15000CF5F4A /* Listener.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,14 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PrefsController.h"
+#import "Listener.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        PrefsController *prefsController = [PrefsController defaultController];
+        Listener *listener = [[Listener alloc] init];
+        [listener listen];
         
-        [prefsController invertColor];
-        [prefsController toggleCursorSize];
+        BOOL done = NO;
+        do
+        {
+            // Start the run loop but return after each source is handled.
+            SInt32    result = CFRunLoopRunInMode(kCFRunLoopDefaultMode, 10, YES);
+            
+            if ((result == kCFRunLoopRunStopped) || (result == kCFRunLoopRunFinished))
+                done = YES;
+        }
+        while (!done);
     }
     return 0;
 }
