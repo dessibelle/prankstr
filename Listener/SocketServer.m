@@ -27,8 +27,8 @@
         
         self.port = port;
         
-        self.netService = [[NSNetService alloc] initWithDomain:@"local."
-                                                          type:@"_prankstr._tcp."
+        self.netService = [[NSNetService alloc] initWithDomain:[NSString stringWithCString:PRANKSTR_NET_SERVICE_DOMAIN encoding:NSUTF8StringEncoding]
+                                                          type:[NSString stringWithCString:PRANKSTR_NET_SERVICE_TYPE encoding:NSUTF8StringEncoding]
                                                           name:@""
                                                           port:port];
         

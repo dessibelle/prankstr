@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		0532115FB55387389319B212 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C4BE1C93A457F0EAB7BB002 /* libPods.a */; };
 		6A062F161B1F4559004AD864 /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AACA5E91B1EE2CB0069C3E0 /* PrefsController.m */; };
+		6A2BE1F91B24F04B00E14560 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A062F1A1B209BA3004AD864 /* main.m */; };
+		6A2BE1FA1B24F05D00E14560 /* ClientController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A062F191B209B7D004AD864 /* ClientController.m */; };
+		6A2BE1FC1B24F06B00E14560 /* PrankstrMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DC86591B21C98000CF5F4A /* PrankstrMessage.m */; };
+		6A2BE1FD1B24F06B00E14560 /* PrankstrProtocolInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DC86541B2022D900CF5F4A /* PrankstrProtocolInterpreter.m */; };
+		6A2BE1FE1B24F18900E14560 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C4BE1C93A457F0EAB7BB002 /* libPods.a */; };
 		6A6E90601B17710100BA025A /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A6E905F1B17710100BA025A /* PreferencePanes.framework */; };
 		6AACA5DB1B1D87950069C3E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AACA5D01B1D87950069C3E0 /* AppDelegate.m */; };
 		6AACA5DC1B1D87950069C3E0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AACA5D21B1D87950069C3E0 /* MainMenu.xib */; };
@@ -28,6 +33,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		6A2BE1F01B24F02F00E14560 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		6A6E90531B17694C00BA025A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -44,7 +58,8 @@
 		6A062F181B209B7D004AD864 /* ClientController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ClientController.h; path = Client/ClientController.h; sourceTree = "<group>"; };
 		6A062F191B209B7D004AD864 /* ClientController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ClientController.m; path = Client/ClientController.m; sourceTree = "<group>"; };
 		6A062F1A1B209BA3004AD864 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Client/main.m; sourceTree = "<group>"; };
-		6A6E90551B17694C00BA025A /* prankstr */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = prankstr; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A2BE1F21B24F02F00E14560 /* prankstr */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = prankstr; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A6E90551B17694C00BA025A /* prankstrd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = prankstrd; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A6E905F1B17710100BA025A /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = System/Library/Frameworks/PreferencePanes.framework; sourceTree = SDKROOT; };
 		6AACA5CA1B1D87490069C3E0 /* UniversalAccessPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniversalAccessPref.h; path = Shared/UniversalAccessPref.h; sourceTree = "<group>"; };
 		6AACA5CF1B1D87950069C3E0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = GUI/AppDelegate.h; sourceTree = "<group>"; };
@@ -75,6 +90,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6A2BE1EF1B24F02F00E14560 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A2BE1FE1B24F18900E14560 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6A6E90521B17694C00BA025A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -121,8 +144,9 @@
 		6A6E90561B17694C00BA025A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6A6E90551B17694C00BA025A /* prankstr */,
+				6A6E90551B17694C00BA025A /* prankstrd */,
 				6ABD19021B188C1C008C68D5 /* prankstr GUI.app */,
+				6A2BE1F21B24F02F00E14560 /* prankstr */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -210,9 +234,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6A6E90541B17694C00BA025A /* prankstr */ = {
+		6A2BE1F11B24F02F00E14560 /* prankstr */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6A6E905C1B17694C00BA025A /* Build configuration list for PBXNativeTarget "prankstr" */;
+			buildConfigurationList = 6A2BE1F61B24F02F00E14560 /* Build configuration list for PBXNativeTarget "prankstr" */;
+			buildPhases = (
+				6A2BE1EE1B24F02F00E14560 /* Sources */,
+				6A2BE1EF1B24F02F00E14560 /* Frameworks */,
+				6A2BE1F01B24F02F00E14560 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = prankstr;
+			productName = prankstr;
+			productReference = 6A2BE1F21B24F02F00E14560 /* prankstr */;
+			productType = "com.apple.product-type.tool";
+		};
+		6A6E90541B17694C00BA025A /* prankstrd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A6E905C1B17694C00BA025A /* Build configuration list for PBXNativeTarget "prankstrd" */;
 			buildPhases = (
 				2AA35F1F84028667CCCE6D4C /* Check Pods Manifest.lock */,
 				6A6E90511B17694C00BA025A /* Sources */,
@@ -224,9 +265,9 @@
 			);
 			dependencies = (
 			);
-			name = prankstr;
+			name = prankstrd;
 			productName = CFPreferencesAppSynchronize;
-			productReference = 6A6E90551B17694C00BA025A /* prankstr */;
+			productReference = 6A6E90551B17694C00BA025A /* prankstrd */;
 			productType = "com.apple.product-type.tool";
 		};
 		6ABD19011B188C1C008C68D5 /* prankstr GUI */ = {
@@ -255,6 +296,9 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Simon Fransson";
 				TargetAttributes = {
+					6A2BE1F11B24F02F00E14560 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
 					6A6E90541B17694C00BA025A = {
 						CreatedOnToolsVersion = 6.3.2;
 					};
@@ -276,7 +320,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6A6E90541B17694C00BA025A /* prankstr */,
+				6A2BE1F11B24F02F00E14560 /* prankstr */,
+				6A6E90541B17694C00BA025A /* prankstrd */,
 				6ABD19011B188C1C008C68D5 /* prankstr GUI */,
 			);
 		};
@@ -331,6 +376,17 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6A2BE1EE1B24F02F00E14560 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A2BE1FA1B24F05D00E14560 /* ClientController.m in Sources */,
+				6A2BE1F91B24F04B00E14560 /* main.m in Sources */,
+				6A2BE1FC1B24F06B00E14560 /* PrankstrMessage.m in Sources */,
+				6A2BE1FD1B24F06B00E14560 /* PrankstrProtocolInterpreter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6A6E90511B17694C00BA025A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -377,6 +433,26 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6A2BE1F71B24F02F00E14560 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C90986E119F044E648867C7 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6A2BE1F81B24F02F00E14560 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA293CCA2ACB47D7572BBCC6 /* Pods.release.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		6A6E905A1B17694C00BA025A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -459,7 +535,7 @@
 			baseConfigurationReference = 6C90986E119F044E648867C7 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "";
-				PRODUCT_NAME = prankstr;
+				PRODUCT_NAME = prankstrd;
 			};
 			name = Debug;
 		};
@@ -468,7 +544,7 @@
 			baseConfigurationReference = DA293CCA2ACB47D7572BBCC6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "";
-				PRODUCT_NAME = prankstr;
+				PRODUCT_NAME = prankstrd;
 			};
 			name = Release;
 		};
@@ -503,6 +579,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6A2BE1F61B24F02F00E14560 /* Build configuration list for PBXNativeTarget "prankstr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A2BE1F71B24F02F00E14560 /* Debug */,
+				6A2BE1F81B24F02F00E14560 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6A6E90501B17694C00BA025A /* Build configuration list for PBXProject "prankstr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -512,7 +597,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6A6E905C1B17694C00BA025A /* Build configuration list for PBXNativeTarget "prankstr" */ = {
+		6A6E905C1B17694C00BA025A /* Build configuration list for PBXNativeTarget "prankstrd" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6A6E905D1B17694C00BA025A /* Debug */,

@@ -10,6 +10,8 @@
 
 @interface PrankstrMessage (Private)
 - (void)initialize;
+- (void)initializeWithData;
+- (void)initializeWithCommand;
 @end
 
 @implementation PrankstrMessage
@@ -24,21 +26,52 @@
     return self;
 }
 
+- (id)initWithCommand:(PrankstrCommand)command andArguments:(NSArray *)arguments
+{
+    if (self = [super init])
+    {
+        self.command = command;
+        self.arguments = arguments;
+        [self initialize];
+    }
+    return self;
+}
+
 - (void)initialize
 {
-    if ([self.data length]) {
-        const unsigned char *bytes = [self.data bytes];
-        
-        self.command = bytes[0];
-        
-        if ([self.data length] > 1) {
-            NSString *args = [[NSString alloc] initWithData:[self.data subdataWithRange:NSMakeRange(1, [self.data length] - 1)] encoding:NSUTF8StringEncoding];
-            
-            self.arguments = [args componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        } else {
-            self.arguments = [NSArray array];
-        }
+    if (self.command != PrankstrCommandNoMessage)
+    {
+        [self initializeWithCommand];
+    } else if ([self.data length])
+    {
+        [self initializeWithData];
     }
+}
+
+- (void)initializeWithData
+{
+    const unsigned char *bytes = [self.data bytes];
+    
+    self.command = bytes[0];
+    
+    if ([self.data length] > 1) {
+        NSString *args = [[NSString alloc] initWithData:[self.data subdataWithRange:NSMakeRange(1, [self.data length] - 1)] encoding:NSUTF8StringEncoding];
+        
+        self.arguments = [args componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    } else {
+        self.arguments = [NSArray array];
+    }
+}
+
+- (void)initializeWithCommand
+{
+    const char *bytes = (const char *)self.command;
+    
+    NSMutableData *data = [[NSMutableData alloc] initWithBytes:&bytes length:1];
+    NSString *argumentsString = [self.arguments componentsJoinedByString:@" "];
+    [data appendData:[argumentsString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    self.data = [data copy];
 }
 
 @end

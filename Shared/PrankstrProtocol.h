@@ -12,6 +12,8 @@
 #define PRANKSTR_READ_TIMEOUT                       15.0
 #define PRANKSTR_READ_TIMEOUT_EXTENSION             10.0
 
+#define PRANKSTR_NET_SERVICE_DOMAIN                 "local."
+#define PRANKSTR_NET_SERVICE_TYPE                   "_prankstr._tcp."
 
 typedef enum _PrankstrStatus {
     PrankstrStatusOK = (long)0,
@@ -19,10 +21,10 @@ typedef enum _PrankstrStatus {
 } PrankstrStatus;
 
 typedef enum _PrankstrCommand {
-    PrankstrMessageNoMessage = (long)0,
-    PrankstrMessageInvertColors,
-    PrankstrMessageToggleCursorSize,
-    PrankstrMessageSetCursorSize
+    PrankstrCommandNoMessage = (long)0,
+    PrankstrCommandInvertColors,
+    PrankstrCommandToggleCursorSize,
+    PrankstrCommandSetCursorSize
 } PrankstrCommand;
 
 #endif

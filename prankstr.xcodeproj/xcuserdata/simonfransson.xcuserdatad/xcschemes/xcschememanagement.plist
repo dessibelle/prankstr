@@ -14,9 +14,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>prankstr.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>6A2BE1F11B24F02F00E14560</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6A6E90541B17694C00BA025A</key>
 		<dict>
 			<key>primary</key>

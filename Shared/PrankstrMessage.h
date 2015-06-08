@@ -16,5 +16,6 @@
 @property (copy, nonatomic) NSArray *arguments;
 
 - (id)initWithData:(NSData *)data;
+- (id)initWithCommand:(PrankstrCommand)command andArguments:(NSArray *)arguments;
 
 @end
