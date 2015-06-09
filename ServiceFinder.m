@@ -72,13 +72,13 @@
             return [NSString stringWithCString:inet_ntop(AF_INET, &ip4->sin_addr, dest, sizeof dest) encoding:NSUTF8StringEncoding];
         }
             break;
-        case AF_INET6: {
-            struct sockaddr_in6 *ip6;
-            char dest[INET6_ADDRSTRLEN];
-            ip6 = (struct sockaddr_in6 *) [data bytes];
-            return [NSString stringWithCString:inet_ntop(AF_INET6, &ip6->sin6_addr, dest, sizeof dest) encoding:NSUTF8StringEncoding];
-        }
-            break;
+//        case AF_INET6: {
+//            struct sockaddr_in6 *ip6;
+//            char dest[INET6_ADDRSTRLEN];
+//            ip6 = (struct sockaddr_in6 *) [data bytes];
+//            return [NSString stringWithCString:inet_ntop(AF_INET6, &ip6->sin6_addr, dest, sizeof dest) encoding:NSUTF8StringEncoding];
+//        }
+//            break;
     }
     
     return nil;
@@ -95,12 +95,12 @@
             return ntohs(ip4->sin_port);
         }
             break;
-        case AF_INET6: {
-            struct sockaddr_in6 *ip6;
-            ip6 = (struct sockaddr_in6 *) [data bytes];
-            return ntohs(ip6->sin6_port);
-        }
-            break;
+//        case AF_INET6: {
+//            struct sockaddr_in6 *ip6;
+//            ip6 = (struct sockaddr_in6 *) [data bytes];
+//            return ntohs(ip6->sin6_port);
+//        }
+//            break;
     }
     
     return 0;
@@ -110,13 +110,21 @@
 {
     if ([[netService addresses] count])
     {
-        NSData *addressData = [[netService addresses] objectAtIndex:0];
+        NSString *address = nil;
+        uint16_t port;
+        int idx = 0;
         
-        NSString *address = [ServiceFinder addressForData:addressData];
-        uint16_t port = [ServiceFinder portForData:addressData];
+        do {
+            NSData *addressData = [[netService addresses] objectAtIndex:idx++];
+            
+            address = [ServiceFinder addressForData:addressData];
+            port = [ServiceFinder portForData:addressData];
+        } while (address == nil);
         
-        ClientController *clientController = [[ClientController alloc] initWithHost:address port:port];
-        return clientController;
+        if (address != nil)
+        {
+            return [[ClientController alloc] initWithHost:address port:port];
+        }
     }
     
     return nil;

@@ -77,6 +77,9 @@
         while ([self.messageQueue count])
         {
             PrankstrMessage *message = [self.messageQueue objectAtIndex:0];
+            
+            NSLog(@"Sending message: %@", message.data);
+            
             [self.socket writeData:message.data withTimeout:10.0 tag:0];
             [self.messageQueue removeObjectAtIndex:0];
         }

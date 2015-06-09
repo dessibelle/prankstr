@@ -22,7 +22,7 @@ int main(int argc, const char * argv[]) {
         do
         {
             // Start the run loop but return after each source is handled.
-            SInt32    result = CFRunLoopRunInMode(kCFRunLoopDefaultMode, 10, YES);
+            SInt32    result = CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0.5, YES);
             
             if ((result == kCFRunLoopRunStopped) || (result == kCFRunLoopRunFinished))
                 done = YES;

@@ -26,22 +26,6 @@
         self.connectedSockets = [[NSMutableArray alloc] initWithCapacity:1];
         
         self.port = port;
-        
-        self.netService = [[NSNetService alloc] initWithDomain:[NSString stringWithCString:PRANKSTR_NET_SERVICE_DOMAIN encoding:NSUTF8StringEncoding]
-                                                          type:[NSString stringWithCString:PRANKSTR_NET_SERVICE_TYPE encoding:NSUTF8StringEncoding]
-                                                          name:@""
-                                                          port:port];
-        
-        [self.netService setDelegate:self];
-        [self.netService publishWithOptions:NSNetServiceListenForConnections];
-        
-//        NSMutableDictionary *txtDict = [NSMutableDictionary dictionaryWithCapacity:2];
-//        
-//        [txtDict setObject:@"moo" forKey:@"cow"];
-//        [txtDict setObject:@"quack" forKey:@"duck"];
-//        
-//        NSData *txtData = [NSNetService dataFromTXTRecordDictionary:txtDict];
-//        [netService setTXTRecordData:txtData];
     }
     return self;
 }
@@ -51,8 +35,17 @@
     NSError *error = nil;
     if ([self.listenerSocket acceptOnPort:self.port error:&error])
     {
-        NSLog(@"Listening for connections on port %hu", self.listenerSocket.localPort);
+        self.port = self.listenerSocket.localPort;
         
+        NSLog(@"Listening for connections on port %hu", self.port);
+        
+        self.netService = [[NSNetService alloc] initWithDomain:[NSString stringWithCString:PRANKSTR_NET_SERVICE_DOMAIN encoding:NSUTF8StringEncoding]
+                                                          type:[NSString stringWithCString:PRANKSTR_NET_SERVICE_TYPE encoding:NSUTF8StringEncoding]
+                                                          name:@""
+                                                          port:self.port];
+        
+        [self.netService setDelegate:self];
+        [self.netService publish];
     } else {
         NSLog(@"Error creating socket: %@", error);
     }
@@ -112,7 +105,7 @@
         }
     });
     
-    [self readDataFromSocket:newSocket];
+    [newSocket readDataWithTimeout:-1 tag:0];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
@@ -131,6 +124,8 @@
             [self writeData:response toSocket:sock];
         }
     });
+    
+    [sock readDataWithTimeout:-1 tag:0];
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err

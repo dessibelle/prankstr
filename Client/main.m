@@ -34,6 +34,9 @@ int main(int argc, const char * argv[]) {
         ClientController *clientController = [serviceFinder bestClientController];
         [clientController connect];
         
+        [clientController sendCommand:PrankstrCommandInvertColors andArguments:nil];
+        [clientController sendCommand:PrankstrCommandToggleCursorSize andArguments:nil];
+        
         done = NO;
         do
         {
