@@ -31,7 +31,7 @@
     if (self = [super init])
     {
         self.command = command;
-        self.arguments = arguments;
+        self.arguments = arguments == nil ? [NSArray array] : arguments;
         [self initialize];
     }
     return self;
@@ -52,7 +52,7 @@
 {
     const unsigned char *bytes = [self.data bytes];
     
-    self.command = bytes[0];
+    self.command = (PrankstrCommand)bytes[0];
     
     if ([self.data length] > 1) {
         NSString *args = [[NSString alloc] initWithData:[self.data subdataWithRange:NSMakeRange(1, [self.data length] - 1)] encoding:NSUTF8StringEncoding];

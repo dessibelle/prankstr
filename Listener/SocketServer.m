@@ -111,6 +111,8 @@
             NSLog(@"Accepted client %@:%hu", host, port);
         }
     });
+    
+    [self readDataFromSocket:newSocket];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
@@ -121,14 +123,14 @@
         @autoreleasepool {
 
             [PrankstrProtocolInterpreter interpretData:[data subdataWithRange:NSMakeRange(0, [data length] - 1)]];
+            
+            PrankstrMessage *message = [PrankstrProtocolInterpreter interpretData:data];
+            PrankstrStatus status = [self.delegate socketServer:self didReceiveMessage:message];
+            
+            NSData *response = [NSData dataWithBytes:&status length:sizeof(PrankstrStatus)];
+            [self writeData:response toSocket:sock];
         }
     });
-    
-    PrankstrMessage *message = [PrankstrProtocolInterpreter interpretData:data];
-    PrankstrStatus status = [self.delegate socketServer:self didReceiveMessage:message];
-    
-    NSData *response = [NSData dataWithBytes:&status length:sizeof(PrankstrStatus)];
-    [self writeData:response toSocket:sock];
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err

@@ -16,7 +16,7 @@
 @property (strong, nonatomic) PrefsController *prefsController;
 
 - (id)initWithPrefsController:(PrefsController *)prefsController;
-+ (id)defaultHandler;
++ (MessageHandler *)defaultHandler;
 - (PrankstrStatus)executeCommand:(PrankstrMessage *)message;
 
 @end

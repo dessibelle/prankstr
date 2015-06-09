@@ -13,9 +13,14 @@
 
 @implementation MessageHandler
 
-+ (id)defaultHandler
++ (MessageHandler *)defaultHandler
 {
     return [[MessageHandler alloc] initWithPrefsController:[PrefsController defaultController]];
+}
+
+- (id)init {
+    self = (id)[MessageHandler defaultHandler];
+    return self;
 }
 
 - (id)initWithPrefsController:(PrefsController *)prefsController;
@@ -30,16 +35,16 @@
 - (PrankstrStatus)executeCommand:(PrankstrMessage *)message
 {
     switch (message.command) {
-        case PrankstrMessageInvertColors:
-            [self.prefsController invertColor];
+        case PrankstrCommandInvertColors:
+            [self.prefsController invertColors];
             break;
-        case PrankstrMessageToggleCursorSize:
+        case PrankstrCommandToggleCursorSize:
             [self.prefsController toggleCursorSize];
             break;
-        case PrankstrMessageSetCursorSize:
+        case PrankstrCommandSetCursorSize:
             return PrankstrStatusError;
             break;
-        case PrankstrMessageNoMessage:
+        case PrankstrCommandNoMessage:
             break;
     }
     

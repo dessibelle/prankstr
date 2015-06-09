@@ -17,7 +17,7 @@ int main(int argc, const char * argv[]) {
         ClientController *clientController = [[ClientController alloc] init];
 //        [clientController findHosts];
         
-        [clientController connectToHost:@"127.0.0.1" onPort:56279];
+        [clientController connectToHost:@"127.0.0.1" onPort:50554];
         [clientController sendCommand:PrankstrCommandInvertColors andArguments:nil];
         
         BOOL done = NO;

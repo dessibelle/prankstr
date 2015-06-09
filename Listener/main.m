@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "Listener.h"
 
+#import "PrankstrMessage.h"
+#import "MessageHandler.h"
+#import "PrefsController.h"
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         Listener *listener = [[Listener alloc] init];
