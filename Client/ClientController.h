@@ -23,5 +23,8 @@
 - (void)sendMessage:(PrankstrMessage *)message;
 - (void)connect;
 - (void)connectToHost:(NSString *)host onPort:(uint16_t)port;
+- (BOOL)isConnected;
+- (void)disconnect;
 
 @end
+

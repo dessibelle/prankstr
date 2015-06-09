@@ -80,9 +80,7 @@
 {
     Ivar sliderIvar = class_getInstanceVariable([self.displayViewController class], [ivarName cStringUsingEncoding:NSUTF8StringEncoding]);
     NSSlider *slider = (NSSlider *)object_getIvar(self.displayViewController, sliderIvar);
-    
-    NSLog(@"%@: minValue: %f, maxValue: %f (%f)", ivarName, slider.minValue, slider.maxValue, value);
-    
+        
     if (value < slider.minValue)
     {
         value = (slider.doubleValue > slider.minValue ? slider.minValue : slider.maxValue);
@@ -141,7 +139,5 @@
 {
     [self setSliderValue:cursorSize forIvarNamed:@"_cursorSizeSlider" usingSelector:@selector(adjustCursorSize:)];
 }
-
-
 
 @end

@@ -14,5 +14,8 @@
 @interface PrankstrProtocolInterpreter : NSObject
 
 + (PrankstrMessage *)interpretData:(NSData *)data;
++ (NSString *)nameForCommand:(PrankstrCommand)command;
++ (NSUInteger)argumentsForCommand:(PrankstrCommand)command;
++ (NSDictionary *)availableCommands;
 
 @end

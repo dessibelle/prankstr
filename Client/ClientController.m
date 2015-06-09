@@ -59,6 +59,19 @@
     [self connect];
 }
 
+- (BOOL)isConnected
+{
+    return self.socket.isConnected;
+}
+
+- (void)disconnect
+{
+    if (self.socket.isConnected)
+    {
+        [self.socket disconnectAfterWriting];
+    }
+}
+
 - (void)sendCommand:(PrankstrCommand)command andArguments:(NSArray *)arguments
 {
     PrankstrMessage *message = [[PrankstrMessage alloc] initWithCommand:command andArguments:arguments];

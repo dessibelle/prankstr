@@ -12,7 +12,7 @@
 #define PRANKSTR_READ_TIMEOUT                       15.0
 #define PRANKSTR_READ_TIMEOUT_EXTENSION             10.0
 
-#define PRANKSTR_NET_SERVICE_DOMAIN                 "" // "local."
+#define PRANKSTR_NET_SERVICE_DOMAIN                 ""
 #define PRANKSTR_NET_SERVICE_TYPE                   "_prankstr._tcp."
 
 typedef enum _PrankstrStatus {
@@ -32,5 +32,10 @@ typedef enum _PrankstrCommand {
     PrankstrCommandToggleCursorSize,
     PrankstrCommandSetCursorSize
 } PrankstrCommand;
+
+#define PRANKSTR_LAST_COMMAND PrankstrCommandSetCursorSize
+
+const char * prankstr_command_name(PrankstrCommand command);
+int prankstr_command_argc(PrankstrCommand command);
 
 #endif

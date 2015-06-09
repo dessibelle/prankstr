@@ -13,8 +13,13 @@
 #import "MessageHandler.h"
 #import "PrefsController.h"
 
+#import "PrankstrProtocolInterpreter.h"
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        
+        NSLog(@"%@", [PrankstrProtocolInterpreter availableCommands]);
+        
         Listener *listener = [[Listener alloc] init];
         [listener listen];
         

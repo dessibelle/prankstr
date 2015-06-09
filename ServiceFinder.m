@@ -188,6 +188,8 @@
                moreComing:(BOOL)moreServicesComing
 {
     NSLog(@"DidRemoveService: %@", [netService name]);
+    
+    [self.availableServices removeObject:netService];
 }
 
 - (void)netServiceBrowserDidStopSearch:(NSNetServiceBrowser *)sender
