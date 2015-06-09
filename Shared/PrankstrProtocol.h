@@ -21,8 +21,14 @@ typedef enum _PrankstrStatus {
 } PrankstrStatus;
 
 typedef enum _PrankstrCommand {
-    PrankstrCommandNoMessage = (long)0,
-    PrankstrCommandInvertColors,
+    PrankstrCommandNoCommand = (long)0,
+    PrankstrCommandToggleReduceTransparency,
+    PrankstrCommandToggleIncreaseContrast,
+    PrankstrCommandToggleDifferentiateWithoutColor,
+    PrankstrCommandToggleInvertColor,
+    PrankstrCommandToggleGrayscale,
+    PrankstrCommandToggleContrast,
+    PrankstrCommandSetContrast,
     PrankstrCommandToggleCursorSize,
     PrankstrCommandSetCursorSize
 } PrankstrCommand;

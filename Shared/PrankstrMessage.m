@@ -39,7 +39,7 @@
 
 - (void)initialize
 {
-    if (self.command != PrankstrCommandNoMessage)
+    if (self.command != PrankstrCommandNoCommand)
     {
         [self initializeWithCommand];
     } else if ([self.data length])

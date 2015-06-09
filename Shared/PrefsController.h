@@ -21,7 +21,14 @@
 + (PrefsController *)defaultController;
 - (id)initWithPath:(NSString *)path;
 
-- (void)invertColors;
+- (void)toggleReduceTransparency;
+- (void)toggleIncreaseContrast;
+- (void)toggleDifferentiateWithoutColor;
+- (void)toggleInvertColor;
+- (void)toggleGrayscale;
+- (void)toggleContrast;
+- (void)setContrast:(double)contrast;
 - (void)toggleCursorSize;
+- (void)setCursorSize:(double)cursorSize;
 
 @end

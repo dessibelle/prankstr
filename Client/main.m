@@ -34,14 +34,26 @@ int main(int argc, const char * argv[]) {
         ClientController *clientController = [serviceFinder bestClientController];
         [clientController connect];
         
-        [clientController sendCommand:PrankstrCommandInvertColors andArguments:nil];
-        [clientController sendCommand:PrankstrCommandToggleCursorSize andArguments:nil];
+//        [clientController sendCommand:PrankstrCommandToggleInvertColor andArguments:nil];
+//        [clientController sendCommand:PrankstrCommandToggleCursorSize andArguments:nil];
+//        [clientController sendCommand:PrankstrCommandToggleContrast andArguments:nil];
+//        [clientController sendCommand:PrankstrCommandToggleGrayscale andArguments:nil];
+//        [clientController sendCommand:PrankstrCommandToggleIncreaseContrast andArguments:nil];
+//        [clientController sendCommand:PrankstrCommandToggleDifferentiateWithoutColor andArguments:nil];
+//        [clientController sendCommand:PrankstrCommandToggleReduceTransparency andArguments:nil];
+        
+        int counter = 0;
+        double cursorSize;
         
         done = NO;
         do
         {
             // Start the run loop but return after each source is handled.
-            SInt32    result = CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0.5, YES);
+            SInt32    result = CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0.1, YES);
+            
+            cursorSize = 2.5 + 1.5 * sin(counter++ / 20.0);
+            
+            [clientController sendCommand:PrankstrCommandSetCursorSize andArguments:[NSArray arrayWithObject:[NSString stringWithFormat:@"%f", cursorSize]]];
             
             if ((result == kCFRunLoopRunStopped) || (result == kCFRunLoopRunFinished))
                 done = YES;

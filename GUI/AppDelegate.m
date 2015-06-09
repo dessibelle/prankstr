@@ -28,7 +28,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [self.window.contentView addSubview:self.prefsController.prefPaneObject.mainView];
-    [self.prefsController invertColors];
+    [self.prefsController toggleInvertColor];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

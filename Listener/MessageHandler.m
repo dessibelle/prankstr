@@ -35,16 +35,35 @@
 - (PrankstrStatus)executeCommand:(PrankstrMessage *)message
 {
     switch (message.command) {
-        case PrankstrCommandInvertColors:
-            [self.prefsController invertColors];
+        case PrankstrCommandToggleReduceTransparency:
+            [self.prefsController toggleReduceTransparency];
+            break;
+        case PrankstrCommandToggleIncreaseContrast:
+            [self.prefsController toggleIncreaseContrast];
+            break;
+        case PrankstrCommandToggleDifferentiateWithoutColor:
+            [self.prefsController toggleDifferentiateWithoutColor];
+            break;
+        case PrankstrCommandToggleInvertColor:
+            [self.prefsController toggleInvertColor];
+            break;
+        case PrankstrCommandToggleGrayscale:
+            [self.prefsController toggleGrayscale];
+            break;
+        case PrankstrCommandToggleContrast:
+            [self.prefsController toggleContrast];
+            break;
+        case PrankstrCommandSetContrast:
+            [self.prefsController setContrast:[[message.arguments objectAtIndex:0] doubleValue]];
             break;
         case PrankstrCommandToggleCursorSize:
             [self.prefsController toggleCursorSize];
             break;
         case PrankstrCommandSetCursorSize:
-            return PrankstrStatusError;
+            [self.prefsController setCursorSize:[[message.arguments objectAtIndex:0] doubleValue]];
             break;
-        case PrankstrCommandNoMessage:
+        case PrankstrCommandNoCommand:
+            return PrankstrStatusError;
             break;
     }
     

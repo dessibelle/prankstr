@@ -9,9 +9,9 @@
 #import "PrefsController.h"
 #import <objc/runtime.h>
 
-
 @interface PrefsController (Private)
 - (BOOL)initialize;
+- (void)setSliderValue:(double)value forIvarNamed:(NSString *)ivarName usingSelector:(SEL)action;
 @end
 
 
@@ -55,17 +55,6 @@
         [self.prefPaneObject willSelect];
         [self.prefPaneObject didSelect];
         
-//        Ivar pcIvar = class_getInstanceVariable([self.prefPaneObject class], "_paneControllers");
-//        NSMutableDictionary *paneControllers = (NSMutableDictionary *)object_getIvar(self.prefPaneObject, pcIvar);
-//        NSLog(@"paneControllers: %@", paneControllers);
-//        
-//        Ivar ftcIvar = class_getInstanceVariable([self.prefPaneObject class], "_featureTableContents");
-//        NSMutableArray *featureTableContents = (NSMutableArray *)object_getIvar(self.prefPaneObject, ftcIvar);
-//        NSLog(@"featureTableContents: %@", featureTableContents);
-//        
-//        UAPDisplayViewController *dvc = [self.prefPaneObject _viewControllerForEntity:@1];
-//        NSLog(@"dvc: %@", dvc);
-        
         Ivar ftIvar = class_getInstanceVariable([self.prefPaneObject class], "_featureTable");
         NSTableView *featureTable = (NSTableView *)object_getIvar(self.prefPaneObject, ftIvar);
         [featureTable selectRowIndexes:[NSIndexSet indexSetWithIndex:1] byExtendingSelection:NO];
@@ -79,25 +68,79 @@
     return YES;
 }
 
-- (void)invertColors
+- (void)toggleCheckboxForIvarNamed:(NSString *)ivarName
 {
-    Ivar invertColorCheckboxIvar = class_getInstanceVariable([self.displayViewController class], "_invertColorCheckbox");
+    Ivar invertColorCheckboxIvar = class_getInstanceVariable([self.displayViewController class], [ivarName cStringUsingEncoding:NSUTF8StringEncoding]);
     NSButton *_invertColorCheckbox = (NSButton *)object_getIvar(self.displayViewController, invertColorCheckboxIvar);
-
     
     [_invertColorCheckbox performClick:self.displayViewController];
 }
 
-- (void)toggleCursorSize
+- (void)setSliderValue:(double)value forIvarNamed:(NSString *)ivarName usingSelector:(SEL)action
 {
-    Ivar cursorSizeSliderIvar = class_getInstanceVariable([self.displayViewController class], "_cursorSizeSlider");
-    NSSlider *_cursorSizeSlider = (NSSlider *)object_getIvar(self.displayViewController, cursorSizeSliderIvar);
-
-    [_cursorSizeSlider setDoubleValue:(_cursorSizeSlider.integerValue > 1 ? 1.0 : 4.0)];
+    Ivar sliderIvar = class_getInstanceVariable([self.displayViewController class], [ivarName cStringUsingEncoding:NSUTF8StringEncoding]);
+    NSSlider *slider = (NSSlider *)object_getIvar(self.displayViewController, sliderIvar);
     
-    [self.displayViewController adjustCursorSize:_cursorSizeSlider];
+    NSLog(@"%@: minValue: %f, maxValue: %f (%f)", ivarName, slider.minValue, slider.maxValue, value);
+    
+    if (value < slider.minValue)
+    {
+        value = (slider.doubleValue > slider.minValue ? slider.minValue : slider.maxValue);
+    }
+    
+    [slider setDoubleValue:MAX(slider.minValue, MIN(slider.maxValue, value))];
+    
+//    [self.displayViewController performSelector:action withObject:slider];
+    IMP imp = [self.displayViewController methodForSelector:action];
+    void (*func)(id, SEL) = (void *)imp;
+    func(self.displayViewController, action);
+
 }
 
+- (void)toggleReduceTransparency
+{
+    [self toggleCheckboxForIvarNamed:@"_reduceTransparencyCheckbox"];
+}
+
+- (void)toggleIncreaseContrast
+{
+    [self toggleCheckboxForIvarNamed:@"_increaseContrastCheckbox"];
+}
+
+- (void)toggleDifferentiateWithoutColor
+{
+    [self toggleCheckboxForIvarNamed:@"_differentiateWithoutColorCheckbox"];
+}
+
+- (void)toggleInvertColor
+{
+    [self toggleCheckboxForIvarNamed:@"_invertColorCheckbox"];
+}
+
+- (void)toggleGrayscale
+{
+    [self toggleCheckboxForIvarNamed:@"_grayscaleCheckbox"];
+}
+
+- (void)toggleContrast
+{
+    [self setContrast:-1];
+}
+
+- (void)setContrast:(double)contrast
+{
+    [self setSliderValue:contrast forIvarNamed:@"_enhanceContrastSlider" usingSelector:@selector(adjustContrast:)];
+}
+
+- (void)toggleCursorSize
+{
+    [self setCursorSize:-1];
+}
+
+- (void)setCursorSize:(double)cursorSize
+{
+    [self setSliderValue:cursorSize forIvarNamed:@"_cursorSizeSlider" usingSelector:@selector(adjustCursorSize:)];
+}
 
 
 
