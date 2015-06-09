@@ -14,6 +14,7 @@
 		6A2BE1FC1B24F06B00E14560 /* PrankstrMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DC86591B21C98000CF5F4A /* PrankstrMessage.m */; };
 		6A2BE1FD1B24F06B00E14560 /* PrankstrProtocolInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DC86541B2022D900CF5F4A /* PrankstrProtocolInterpreter.m */; };
 		6A2BE1FE1B24F18900E14560 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C4BE1C93A457F0EAB7BB002 /* libPods.a */; };
+		6A2BE2171B27318300E14560 /* ServiceFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2BE2161B27318300E14560 /* ServiceFinder.m */; };
 		6A6E90601B17710100BA025A /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A6E905F1B17710100BA025A /* PreferencePanes.framework */; };
 		6AACA5DB1B1D87950069C3E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AACA5D01B1D87950069C3E0 /* AppDelegate.m */; };
 		6AACA5DC1B1D87950069C3E0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AACA5D21B1D87950069C3E0 /* MainMenu.xib */; };
@@ -59,6 +60,8 @@
 		6A062F191B209B7D004AD864 /* ClientController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ClientController.m; path = Client/ClientController.m; sourceTree = "<group>"; };
 		6A062F1A1B209BA3004AD864 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Client/main.m; sourceTree = "<group>"; };
 		6A2BE1F21B24F02F00E14560 /* prankstr */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = prankstr; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A2BE2151B27318300E14560 /* ServiceFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceFinder.h; sourceTree = "<group>"; };
+		6A2BE2161B27318300E14560 /* ServiceFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceFinder.m; sourceTree = "<group>"; };
 		6A6E90551B17694C00BA025A /* prankstrd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = prankstrd; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A6E905F1B17710100BA025A /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = System/Library/Frameworks/PreferencePanes.framework; sourceTree = SDKROOT; };
 		6AACA5CA1B1D87490069C3E0 /* UniversalAccessPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniversalAccessPref.h; path = Shared/UniversalAccessPref.h; sourceTree = "<group>"; };
@@ -124,6 +127,8 @@
 				6A062F1A1B209BA3004AD864 /* main.m */,
 				6A062F181B209B7D004AD864 /* ClientController.h */,
 				6A062F191B209B7D004AD864 /* ClientController.m */,
+				6A2BE2151B27318300E14560 /* ServiceFinder.h */,
+				6A2BE2161B27318300E14560 /* ServiceFinder.m */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -382,6 +387,7 @@
 			files = (
 				6A2BE1FA1B24F05D00E14560 /* ClientController.m in Sources */,
 				6A2BE1F91B24F04B00E14560 /* main.m in Sources */,
+				6A2BE2171B27318300E14560 /* ServiceFinder.m in Sources */,
 				6A2BE1FC1B24F06B00E14560 /* PrankstrMessage.m in Sources */,
 				6A2BE1FD1B24F06B00E14560 /* PrankstrProtocolInterpreter.m in Sources */,
 			);

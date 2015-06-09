@@ -33,7 +33,7 @@
                                                           port:port];
         
         [self.netService setDelegate:self];
-        [self.netService publish];
+        [self.netService publishWithOptions:NSNetServiceListenForConnections];
         
 //        NSMutableDictionary *txtDict = [NSMutableDictionary dictionaryWithCapacity:2];
 //        

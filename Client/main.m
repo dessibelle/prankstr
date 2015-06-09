@@ -9,22 +9,36 @@
 #import <Foundation/Foundation.h>
 #import <CocoaAsyncSocket/GCDAsyncSocket.h>
 #import "ClientController.h"
+#import "ServiceFinder.h"
 #import "PrankstrProtocol.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-
-        ClientController *clientController = [[ClientController alloc] init];
-//        [clientController findHosts];
         
-        [clientController connectToHost:@"127.0.0.1" onPort:50554];
-        [clientController sendCommand:PrankstrCommandInvertColors andArguments:nil];
+        ServiceFinder *serviceFinder = [[ServiceFinder alloc] init];
+        [serviceFinder findHosts];
         
         BOOL done = NO;
         do
         {
             // Start the run loop but return after each source is handled.
-            SInt32    result = CFRunLoopRunInMode(kCFRunLoopDefaultMode, 10, YES);
+            SInt32    result = CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0.5, YES);
+            
+            done = serviceFinder.isDone;
+            
+            if ((result == kCFRunLoopRunStopped) || (result == kCFRunLoopRunFinished))
+                done = YES;
+        }
+        while (!done);
+        
+        ClientController *clientController = [serviceFinder bestClientController];
+        [clientController connect];
+        
+        done = NO;
+        do
+        {
+            // Start the run loop but return after each source is handled.
+            SInt32    result = CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0.5, YES);
             
             if ((result == kCFRunLoopRunStopped) || (result == kCFRunLoopRunFinished))
                 done = YES;
