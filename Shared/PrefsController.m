@@ -55,6 +55,21 @@
         [self.prefPaneObject willSelect];
         [self.prefPaneObject didSelect];
         
+//        Ivar pcIvar = class_getInstanceVariable([self.prefPaneObject class], "_paneControllers");
+//        NSMutableDictionary *paneControllers = (NSMutableDictionary *)object_getIvar(self.prefPaneObject, pcIvar);
+//        NSLog(@"paneControllers: %@", paneControllers);
+//        
+//        Ivar ftcIvar = class_getInstanceVariable([self.prefPaneObject class], "_featureTableContents");
+//        NSMutableArray *featureTableContents = (NSMutableArray *)object_getIvar(self.prefPaneObject, ftcIvar);
+//        NSLog(@"featureTableContents: %@", featureTableContents);
+//        
+//        UAPDisplayViewController *dvc = [self.prefPaneObject _viewControllerForEntity:@1];
+//        NSLog(@"dvc: %@", dvc);
+        
+        Ivar ftIvar = class_getInstanceVariable([self.prefPaneObject class], "_featureTable");
+        NSTableView *featureTable = (NSTableView *)object_getIvar(self.prefPaneObject, ftIvar);
+        [featureTable selectRowIndexes:[NSIndexSet indexSetWithIndex:1] byExtendingSelection:NO];
+        
         Ivar ccIvar = class_getInstanceVariable([self.prefPaneObject class], "_currentController");
         self.displayViewController = (UAPDisplayViewController *)object_getIvar(self.prefPaneObject, ccIvar);
     } else {
@@ -64,7 +79,7 @@
     return YES;
 }
 
-- (void)invertColor
+- (void)invertColors
 {
     Ivar invertColorCheckboxIvar = class_getInstanceVariable([self.displayViewController class], "_invertColorCheckbox");
     NSButton *_invertColorCheckbox = (NSButton *)object_getIvar(self.displayViewController, invertColorCheckboxIvar);

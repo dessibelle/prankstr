@@ -21,7 +21,7 @@
 + (PrefsController *)defaultController;
 - (id)initWithPath:(NSString *)path;
 
-- (void)invertColor;
+- (void)invertColors;
 - (void)toggleCursorSize;
 
 @end
