@@ -91,7 +91,7 @@
         {
             PrankstrMessage *message = [self.messageQueue objectAtIndex:0];
             
-            NSLog(@"Sending message: %@", message.data);
+//            NSLog(@"Sending message: %@", message.data);
             
             [self.socket writeData:message.data withTimeout:10.0 tag:0];
             [self.messageQueue removeObjectAtIndex:0];
@@ -104,14 +104,14 @@
 
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
 {
-    NSLog(@"Socket:DidConnectToHost: %@ Port: %hu", host, port);
+//    NSLog(@"Socket:DidConnectToHost: %@ Port: %hu", host, port);
     
     [self processMessageQueue];
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err
 {
-    NSLog(@"SocketDidDisconnect:WithError: %@", err);
+//    NSLog(@"SocketDidDisconnect:WithError: %@", err);
 }
 
 

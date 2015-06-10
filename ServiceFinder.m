@@ -52,7 +52,7 @@
 {
     if ([self.serviceDomains count])
     {
-        NSLog(@"Domains: %@", self.serviceDomains);
+//        NSLog(@"Domains: %@", self.serviceDomains);
         
         return [self.serviceDomains objectAtIndex:0];
     }
@@ -163,7 +163,7 @@
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)sender didNotSearch:(NSDictionary *)errorInfo
 {
-    NSLog(@"DidNotSearch: %@", errorInfo);
+//    NSLog(@"DidNotSearch: %@", errorInfo);
     
 }
 
@@ -171,8 +171,8 @@
            didFindService:(NSNetService *)netService
                moreComing:(BOOL)moreServicesComing
 {
-    NSLog(@"DidFindService: %@", [netService name]);
-    NSLog(@"Resolving...");
+//    NSLog(@"DidFindService: %@", [netService name]);
+//    NSLog(@"Resolving...");
     
     if (![self.availableServices containsObject:netService])
     {
@@ -187,38 +187,38 @@
          didRemoveService:(NSNetService *)netService
                moreComing:(BOOL)moreServicesComing
 {
-    NSLog(@"DidRemoveService: %@", [netService name]);
+//    NSLog(@"DidRemoveService: %@", [netService name]);
     
     [self.availableServices removeObject:netService];
 }
 
 - (void)netServiceBrowserDidStopSearch:(NSNetServiceBrowser *)sender
 {
-    NSLog(@"DidStopSearch");
+//    NSLog(@"DidStopSearch");
 }
 
 - (void)netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict
 {
-    NSLog(@"DidNotResolve");
+//    NSLog(@"DidNotResolve");
 }
 
 - (void)netServiceDidStop:(NSNetService *)sender
 {
-    NSLog(@"netServiceDidStop");
+//    NSLog(@"netServiceDidStop");
     
     _isDone = YES;
 }
 
 - (void)netServiceDidResolveAddress:(NSNetService *)sender
 {
-    NSLog(@"DidResolve %@ (%@): %@", [sender name], [sender domain], [sender addresses]);
+//    NSLog(@"DidResolve %@ (%@): %@", [sender name], [sender domain], [sender addresses]);
     
-    for (NSData *addressData in [sender addresses])
-    {
-        NSString *addressString = [NSString stringWithFormat: @"%@:%d",  [ServiceFinder addressForData:addressData], [ServiceFinder portForData:addressData]];
-        
-        NSLog(@"%@", addressString);
-    }
+//    for (NSData *addressData in [sender addresses])
+//    {
+//        NSString *addressString = [NSString stringWithFormat: @"%@:%d",  [ServiceFinder addressForData:addressData], [ServiceFinder portForData:addressData]];
+//        
+//        NSLog(@"%@", addressString);
+//    }
     
     _isDone = ++_numResolvedHosts == [self.availableServices count];
 }
