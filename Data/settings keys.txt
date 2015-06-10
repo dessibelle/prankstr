@@ -1,0 +1,23 @@
+# Cursor size
+defaults write com.apple.universalaccess mouseDriverCursorSize -int 4
+
+# Inverted colors
+defaults write com.apple.universalaccess whiteOnBlack -int 1
+defaults write com.apple.CoreGraphics DisplayUseInvertedPolarity -int 1
+
+# Contrast
+defaults write com.apple.universalaccess contrast -int 1
+defaults write com.apple.universalaccess increaseContrast -int 1
+
+# Grayscale
+defaults write com.apple.universalaccess grayscale -int 4
+defaults write com.apple.CoreGraphicsDisplayUseForcedGray -int 1
+
+killall SystemUIServer
+
+
+while 1 ; do ; defaults read com.apple.CoreGraphics DisplayUseInvertedPolarity && defaults read com.apple.universalaccess whiteOnBlack && sleep 1 ; done
+
+
+defaults write com.apple.CoreGraphics DisplayUseInvertedPolarity -int 1 && defaults write com.apple.universalaccess whiteOnBlack -int 1
+defaults write com.apple.CoreGraphics DisplayUseInvertedPolarity -int 0 && defaults write com.apple.universalaccess whiteOnBlack -int 0
