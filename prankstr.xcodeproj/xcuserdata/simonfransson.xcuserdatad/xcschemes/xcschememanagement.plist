@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>prankstr 2.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
 		<key>prankstr.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -38,6 +43,11 @@
 			<true/>
 		</dict>
 		<key>6ABD19131B188C1C008C68D5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4DC86691B27883900CF5F4A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

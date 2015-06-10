@@ -4,17 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-AFNetworking.xcscheme</key>
+		<key>Pods-ios-CocoaAsyncSocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-CocoaAsyncSocket.xcscheme</key>
+		<key>Pods-ios.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-osx-CocoaAsyncSocket.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-osx.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4B853ED5DA4BEAA131C5ECB5</key>
+		<key>0783FAE75190BAD314EA6490</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>60B47B06C2F9867899FEFC00</key>
+		<key>69A6BB0D1ED016B96A98B61B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>75BDCEC85DF38DA488755718</key>
+		<key>AD897684062B6F772D649524</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C823385E1490FA1F9949AE57</key>
 		<dict>
 			<key>primary</key>
 			<true/>
