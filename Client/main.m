@@ -39,11 +39,28 @@ int main(int argc, const char * argv[]) {
             printf("%lu: %s\n", ++idx, [[service name] cStringUsingEncoding:NSUTF8StringEncoding]);
         }
         
-        NSUInteger userInput;
-        printf("\nPick a host: ");
-        scanf("%lu", &userInput);
+        NSUInteger userInput = INT_MAX;
         
-        service = [serviceFinder.availableServices objectAtIndex:userInput - 1];
+        char c = '0';
+        printf("\n");
+        while (userInput >= [serviceFinder.availableServices count]) {
+            printf("Pick a host: ");
+            if (scanf("%lu", &userInput) == 0) {
+
+                printf("Error, try again: ");
+                do {
+                    c = getchar();
+                }
+                while (!isdigit(c));
+                ungetc(c, stdin);
+
+                userInput = INT_MAX;
+            } else {
+                userInput--;
+            }
+        }
+
+        service = [serviceFinder.availableServices objectAtIndex:userInput];
         ClientController *clientController = [ServiceFinder clientControllerForNetService:service];
         [clientController connect];
         
@@ -64,7 +81,7 @@ int main(int argc, const char * argv[]) {
             // Start the run loop but return after each source is handled.
             SInt32    result = CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0.5, YES);
             
-            printf("%s\n", [[commandList componentsJoinedByString:@"\n"] cStringUsingEncoding:NSUTF8StringEncoding]);
+            printf("\n%s\n", [[commandList componentsJoinedByString:@"\n"] cStringUsingEncoding:NSUTF8StringEncoding]);
             
             PrankstrCommand command;
             printf("\nCommand: ");
